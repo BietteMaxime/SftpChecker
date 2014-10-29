@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SftpChecker", "SftpChecker\SftpChecker.csproj", "{1B626374-AEEA-4E78-AD54-4D48FAF07002}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptedFilesTools", "EncryptedFilesTools\EncryptedFilesTools.csproj", "{CDAF2BED-D770-48C2-A2F6-F419EE828655}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptionLibrary", "EncryptionLibrary\EncryptionLibrary.csproj", "{34246389-47AB-4958-A36E-0B7B358DBAA5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{1B626374-AEEA-4E78-AD54-4D48FAF07002}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B626374-AEEA-4E78-AD54-4D48FAF07002}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B626374-AEEA-4E78-AD54-4D48FAF07002}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDAF2BED-D770-48C2-A2F6-F419EE828655}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDAF2BED-D770-48C2-A2F6-F419EE828655}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDAF2BED-D770-48C2-A2F6-F419EE828655}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDAF2BED-D770-48C2-A2F6-F419EE828655}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34246389-47AB-4958-A36E-0B7B358DBAA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34246389-47AB-4958-A36E-0B7B358DBAA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34246389-47AB-4958-A36E-0B7B358DBAA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34246389-47AB-4958-A36E-0B7B358DBAA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

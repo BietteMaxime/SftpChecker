@@ -10,7 +10,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace SftpChecker.Helpers
+namespace EncryptionLibrary.Helpers
 {
     public static class AesThenHmac
     {

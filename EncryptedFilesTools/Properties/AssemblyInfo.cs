@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SftpChecker")]
+[assembly: AssemblyTitle("EncryptedFilesTools")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SftpChecker")]
+[assembly: AssemblyProduct("EncryptedFilesTools")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("0a21e741-4d2d-4d91-9af6-7716cfbbd946")]
+[assembly: Guid("e357f41f-8bd1-4af2-8222-816b898610ce")]
 
 // Version information for an assembly consists of the following four values:
 //
