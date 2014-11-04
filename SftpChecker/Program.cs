@@ -74,7 +74,7 @@ namespace SftpChecker
                 Debug.Assert(connectionFilename != null, "connectionFilename != null");
                 var connectionFile = FileHandler.LoadFile<ConnectionFile>(connectionFilename);
 
-                var sftpChecker = new SftpChecker(authFile, connectionFile);
+                var sftpChecker = new Checker(authFile, connectionFile);
 
                 var successSftp = sftpChecker.TestSftpConnection();
 

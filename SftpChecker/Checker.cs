@@ -2,16 +2,17 @@
 using System.Linq;
 using EncryptionLibrary.Data;
 using Renci.SshNet;
+using SftpChecker.Tracking;
 
 namespace SftpChecker
 {
-    public class SftpChecker
+    public class Checker
     {
         private readonly AuthFile _authFile;
         private readonly ConnectionFile _connectionFile;
 
 
-        public SftpChecker(AuthFile authFile, ConnectionFile connectionFile)
+        public Checker(AuthFile authFile, ConnectionFile connectionFile)
         {
             _authFile = authFile;
             _connectionFile = connectionFile;
@@ -62,18 +63,21 @@ namespace SftpChecker
         {
             var connectionInfo = BuildConnectionInfo();
             using (var sftpClient = new SftpClient(connectionInfo))
+            using (var trackingAccessor = new TrackingAccessor("SftpChecker"))
             {
                 try
                 {
                     sftpClient.Connect();
+                    trackingAccessor.AddCheck(true,"");
+                    return true;
                 }
                 catch (Exception e)
                 {
                     Console.Out.WriteLine(e.Message);
+                    trackingAccessor.AddCheck(true, e.Message);
                     return false;
                 }
-            }
-            return true;
+            }            
         }
     }
 }
