@@ -23,7 +23,7 @@ namespace SftpChecker
             KeyboardInteractiveAuthenticationMethod keyboardAuth;
             ConnectionInfo connectionInfo;
 
-            using (var connectionFileAccessor = new ConnectionFileAccessor(_connectionFile, _authFile))
+            using (var connectionFileAccessor = new ConnectionFileAccessor(_authFile, _connectionFile))
             {
                 var passwordAuth = new PasswordAuthenticationMethod(
                     connectionFileAccessor.GetUsername(),
@@ -49,7 +49,7 @@ namespace SftpChecker
                         )
                     )
                 {
-                    using (var connectionFileAccessor = new ConnectionFileAccessor(_connectionFile, _authFile))
+                    using (var connectionFileAccessor = new ConnectionFileAccessor(_authFile, _connectionFile))
                     {
                         prompt.Response = connectionFileAccessor.GetPassword();
                     }

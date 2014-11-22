@@ -15,6 +15,7 @@ namespace EncryptedFilesTools
 
             string authFilename = null;
             string connectionFilename = null;
+            string mailConfigurationFilename = null;
 
             var getNewKey = false;
 
@@ -29,6 +30,11 @@ namespace EncryptedFilesTools
             string port = null;
             string username = null;
             string password = null;
+
+            var setMailConfigurationFile = false;
+            string serverName = null;
+            string mailFile = null;
+            //string password = null;
 
             var p = new OptionSet
             {
@@ -89,8 +95,28 @@ namespace EncryptedFilesTools
                 },
                 {
                     "password:",
-                    "password value (for setConnectionFile only).",
+                    "password value (for setConnectionFile and setMailConfigurationFile only).",
                     v => { password = v; }
+                },
+                {
+                    "setMailConfigurationFile",
+                    "generate a new MailConfigurationFile (require AuthFile, MailConfigurationFile, ServerName, MailFile, Password).",
+                    v => { setMailConfigurationFile = true;}
+                },
+                {
+                    "mailConfigurationFile:",
+                    "path the mailConfigurationFile.",
+                    v => { mailConfigurationFilename = v; }
+                },
+                {
+                    "serverName:",
+                    "serverName value (for setMailConfigurationFile only).",
+                    v => { username = v; }
+                },
+                {
+                    "mailFile:",
+                    "mailFile value (for setMailConfigurationFile only).",
+                    v => { username = v; }
                 },
                 {
                     "h|?|help", "show this message and exit.",
@@ -160,7 +186,7 @@ namespace EncryptedFilesTools
                 var authFile = FileHandler.LoadFile<AuthFile>(authFilename);
 
                 var connectionFile = new ConnectionFile();
-                using (var connectionFileAccessor = new ConnectionFileAccessor(connectionFile, authFile))
+                using (var connectionFileAccessor = new ConnectionFileAccessor(authFile, connectionFile))
                 {
                     Debug.Assert(host != null, "host != null");
                     connectionFileAccessor.SetHostname(host);
@@ -173,6 +199,26 @@ namespace EncryptedFilesTools
                 }
                 Debug.Assert(connectionFilename != null, "connectionFilename != null");
                 FileHandler.SaveObject(connectionFile, connectionFilename);
+
+                return 0;
+            }
+            if (setMailConfigurationFile)
+            {
+                Debug.Assert(authFilename != null, "authFilename != null");
+                var authFile = FileHandler.LoadFile<AuthFile>(authFilename);
+
+                var mailConfigurationFile = new MailConfigurationFile();
+                using (var mailConfigurationFileAccessor = new MailConfigurationFileAccessor(authFile, mailConfigurationFile))
+                {
+                    Debug.Assert(serverName != null, "serverName != null");
+                    mailConfigurationFileAccessor.SetServerName(serverName);
+                    Debug.Assert(mailFile != null, "mailFile != null");
+                    mailConfigurationFileAccessor.SetMailFile(mailFile);
+                    Debug.Assert(password != null, "password != null");
+                    mailConfigurationFileAccessor.SetPassword(password);
+                }
+                Debug.Assert(mailConfigurationFilename != null, "mailConfigurationFilename != null");
+                FileHandler.SaveObject(mailConfigurationFile, mailConfigurationFilename);
 
                 return 0;
             }
